@@ -1,10 +1,15 @@
+### Goal of project
+two agents control rackets to bounce a ball over a net. If an agent hits the ball over the net, it receives a reward of +0.1. If an agent lets a ball hit the ground or hits the ball out of bounds, it receives a reward of -0.01. Thus, the goal of each agent is to keep the ball in play.
+
+The environment is considered solved, when the average (over 100 episodes) of those scores is at least +0.5.
+
 ### Learning Algorithm
-I use DDPG learning algorithm. Main key points of DDPG are as follows
+I use DDPG learning algorithm. This is based on my [second project](https://github.com/DaeHwanGi/DRLND_P2_Continuous-Control). Main key points of DDPG are as follows
 * Replay Buffer
 * soft target update
 * Batch Normalization
 * add noise for explore
-
+DDPG network is consist with actor and critic network.
 ### Models
 
 #### Actor
@@ -24,7 +29,11 @@ I use DDPG learning algorithm. Main key points of DDPG are as follows
 * fc2 : nn.Linear(fcs1_units+action_size, fc2_units)
 * activation : nn.functional.leaky_relu
 * fc3 : nn.Linear(fc2_units, 1)
+
 #### Hyper parameters
+I modify some parameters. Experiments have shown that the size of the buffer and batch size have the greatest effect on the score.
+Because input features are pretty simple, I also make my network complexity lower than before project
+
 Parameter | Value
 --- | ---
 BUFFER_SIZE | int(1e5)
@@ -39,8 +48,10 @@ LEARNING_STEP | 10
 
 ### Plot of Rewards
 ![plot.png](image/plot.png)
+blue line represents max score at each epoch
+orange line represents average (over 100 episodes) score
+
+### Result video
+<iframe width="1288" height="507" src="https://www.youtube.com/embed/hOY0uCtpiTM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ### Future Work
 
-* apply another algorithms(PPO, A3C)
-* find optimal network model
-* apply DDPG to pixel input environment
