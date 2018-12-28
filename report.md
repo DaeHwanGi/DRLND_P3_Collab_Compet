@@ -4,13 +4,12 @@ two agents control rackets to bounce a ball over a net. If an agent hits the bal
 The environment is considered solved, when the average (over 100 episodes) of those scores is at least +0.5.
 
 ### Learning Algorithm
-I use DDPG learning algorithm. This is based on my [second project](https://github.com/DaeHwanGi/DRLND_P2_Continuous-Control). Main key points of DDPG are as follows
+I use DDPG learning algorithm. DDPG is policy gradient actor-critic algorithm. it is off-policy and model-free. 
+This is based on my [second project](https://github.com/DaeHwanGi/DRLND_P2_Continuous-Control). Main key points of DDPG are as follows
 * Replay Buffer
 * soft target update
 * Batch Normalization
 * add noise for explore
-DDPG network is consist with actor and critic network.
-### Models
 
 #### Actor
 * bn1 : nn.BatchNorm1d(state_size)
@@ -48,11 +47,13 @@ LEARNING_STEP | 10
 
 ### Plot of Rewards
 ![plot.png](image/plot.png)
+
 blue line represents max score at each epoch
+
 orange line represents average (over 100 episodes) score
 
 ### Result video
 [![Watch the video](image/youtube.png)](https://youtu.be/hOY0uCtpiTM)
 
 ### Future Work
-
+The way i see it, bad experiences in the buffer was the problem. if batch size and buffer size is big, there is a bigger probability of bringing bad experiences than good experiences. For avoid this problem, i want to apply prioritized replay buffer.
