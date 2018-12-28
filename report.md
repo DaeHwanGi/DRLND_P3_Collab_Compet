@@ -52,8 +52,7 @@ blue line represents max score at each epoch
 orange line represents average (over 100 episodes) score
 
 ### Result video
-
-<iframe width="1288" height="507" src="https://www.youtube.com/embed/hOY0uCtpiTM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch the video](image/youtube.png)](https://youtu.be/hOY0uCtpiTM)
 
 ### Future Work
 
