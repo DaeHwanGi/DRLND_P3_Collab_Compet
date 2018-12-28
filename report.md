@@ -4,9 +4,6 @@ I use DDPG learning algorithm. Main key points of DDPG are as follows
 * soft target update
 * Batch Normalization
 * add noise for explore
-#### DDPG Pseudo Code
-
-![image1](report/ddpg-algorithm.png)
 
 ### Models
 
@@ -30,24 +27,18 @@ I use DDPG learning algorithm. Main key points of DDPG are as follows
 #### Hyper parameters
 Parameter | Value
 --- | ---
-BUFFER_SIZE | int(1e6)
-BATCH_SIZE | 512
+BUFFER_SIZE | int(1e5)
+BATCH_SIZE | 256
 GAMMA | 0.99  
 TAU | 1e-3
 LR_ACTOR | 1e-3
 LR_CRITIC | 1e-3
 WEIGHT_DECAY | 0
 LEARNING_REPEAT | 20
-LEARNING_STEP | 20
-
-I train my algorithm by changing hyper parameters.
-
-'128,256,512' BATCH_SIZE, '5,10,20' LEARNING_REPEAT,
-
-'1e-5,1e-4,1e-3' LR_ACTOR,LR_CRITIC
+LEARNING_STEP | 10
 
 ### Plot of Rewards
-![image2](report/plot.png)
+![plot.png](image/plot.png)
 ### Future Work
 
 * apply another algorithms(PPO, A3C)
